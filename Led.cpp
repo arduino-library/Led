@@ -1,8 +1,8 @@
 /* 
  * LED control
  *
- * This source file is part of the Lithium-Ion Battery Charger Arduino firmware
- * found under http://www.github.com/microfarad-de/Led
+ * This source file can be found under:
+ * http://www.github.com/microfarad-de/Led
  * 
  * Please visit:
  *   http://www.microfarad.de
@@ -47,36 +47,34 @@ void LedClass::loopHandler (void) {
     blinkOn = !blinkOn;
     digitalWrite (ledPin, blinkOn);
     blinkTs = ts;
-    if (count > 0 ) count--;
-    else if (count == 0) {
-      blinkStop ();
+    count--;
+    if (count <= 0) {
+      blinking = false;
+      digitalWrite (ledPin, powerOn);
     }
   }
 }
 
 void LedClass::turnOn (void) {
   if (!initialized) return;
-  blinking = false;
   powerOn = true;
   digitalWrite (ledPin, powerOn);
 }
 
 void LedClass::turnOff (void) {
   if (!initialized) return;
-  blinking = false;
   powerOn = false;
   digitalWrite (ledPin, powerOn);
 }
 
 void LedClass::toggle (void) {
   if (!initialized) return;
-  blinking = false;
   powerOn = !powerOn;
   digitalWrite (ledPin, powerOn);
 }
 
 void LedClass::blink (int32_t count, uint32_t tOn, uint32_t tOff) {
-  if (!initialized || count == 0) return;
+  if (!initialized || blinking || count <= 0) return;
   this->blinking = true;
   this->count = 2 * count;
   this->tOn = tOn;
@@ -84,12 +82,6 @@ void LedClass::blink (int32_t count, uint32_t tOn, uint32_t tOff) {
   this->blinkOn = !powerOn;
   digitalWrite (ledPin, blinkOn);  
   blinkTs = millis ();
-}
-
-void LedClass::blinkStop (void) {
-  if (!initialized) return;
-  blinking = false;
-  digitalWrite (ledPin, powerOn);  
 }
 
 void LedClass::blinkBlocking (int32_t count, uint32_t tOn, uint32_t tOff) {

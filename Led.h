@@ -1,8 +1,8 @@
 /* 
  * LED control
  *
- * This source file is part of the Lithium-Ion Battery Charger Arduino firmware
- * found under http://www.github.com/microfarad-de/Led
+ * This source file can be found under:
+ * http://www.github.com/microfarad-de/Led
  * 
  * Please visit:
  *   http://www.microfarad.de
@@ -42,7 +42,6 @@ class LedClass {
     void toggle (void);
     void blink (int32_t count, uint32_t tOn, uint32_t tOff);
     void blinkBlocking (int32_t count, uint32_t tOn, uint32_t tOff);
-    void blinkStop (void);
 
     bool blinking = false;
     bool powerOn = false;
@@ -55,6 +54,7 @@ class LedClass {
     uint32_t tOn, tOff;
     bool blinkOn;
 };
+
 
 
 
