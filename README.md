@@ -4,7 +4,7 @@ Library for controlling a blinking LED.
 
 Main features:
 
-* Support for several LED objects
+* Support for multiple LED objects
 * Adjustable on/off duration
 * Adjustable finite number of blink cycles
 * Blocking and non-blocking execution modes
