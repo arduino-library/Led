@@ -2,11 +2,12 @@
  * LED Control Class
  *
  * This source file can be found under:
- * http://www.github.com/microfarad-de/Led
+ * http://www.github.com/arduino-library/Led
  *
  * Please visit:
  *   http://www.microfarad.de
  *   http://www.github.com/microfarad-de
+ *   http://www.github.com/arduino-library
  *
  * Copyright (C) 2019 Karim Hraibi (khraibi at gmail.com)
  *
@@ -83,7 +84,7 @@ void LedClass::blink (int32_t count, uint32_t tOn, uint32_t tOff) {
   this->tOn = tOn;
   this->tOff = tOff;
   this->blinkOn = !powerOn;
-  digitalWrite (ledPin, blinkOn);  
+  digitalWrite (ledPin, blinkOn);
   blinkTs = millis ();
 }
 
