@@ -2,7 +2,7 @@
  * LED Control Class
  * 
  * This source file can be found under:
- * http://www.github.com/microfarad-de/Led
+ * http://www.github.com/arduino-library/Led
  * 
  * Please visit:
  *   http://www.microfarad.de
