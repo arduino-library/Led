@@ -57,14 +57,14 @@ void LedClass::loopHandler (void) {
 
 void LedClass::turnOn (void) {
   if (!initialized) return;
-  blinking = false;
+  blinkStop ();
   powerOn = true;
   digitalWrite (ledPin, powerOn);
 }
 
 void LedClass::turnOff (void) {
   if (!initialized) return;
-  blinking = false;
+  blinkStop ();
   powerOn = false;
   digitalWrite (ledPin, powerOn);
 }
