@@ -1,6 +1,6 @@
 # Led
 
-Library for controlling a blinking LED. 
+Library for controlling a blinking LED.
 
 Main features:
 
@@ -13,6 +13,7 @@ Usage example:
 
 * https://github.com/microfarad-de/antenna-tuner
 * https://github.com/microfarad-de/pi-ups
+* https://github.com/microfarad-de/smart-pump
 
 Git commands:
 
