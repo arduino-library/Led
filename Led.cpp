@@ -94,6 +94,7 @@ void LedClass::blinkStop (void) {
   digitalWrite (ledPin, powerOn);
   this->tOn = 0;
   this->tOff = 0;
+  this->count = 0;
 }
 
 void LedClass::blinkBlocking (int32_t count, uint32_t tOn, uint32_t tOff) {
