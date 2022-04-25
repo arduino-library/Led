@@ -32,8 +32,8 @@ void LedClass::initialize (uint8_t ledPin) {
   this->ledPin = ledPin;
   pinMode (ledPin, OUTPUT);
   digitalWrite (ledPin, LOW);
-  powerOn = false;
-  blinking = false;
+  powerOn     = false;
+  blinking    = false;
   initialized = true;
 }
 
@@ -72,29 +72,29 @@ void LedClass::turnOff (void) {
 void LedClass::toggle (void) {
   if (!initialized) return;
   blinking = false;
-  powerOn = !powerOn;
+  powerOn  = !powerOn;
   digitalWrite (ledPin, powerOn);
 }
 
 void LedClass::blink (int32_t count, uint32_t tOn, uint32_t tOff) {
   if (!initialized || count == 0) return;
   if ((tOn == this->tOn && tOff == this->tOff) || this->count > 0)  return;
-  this->blinking = true;
   this->count = 2 * count;
-  this->tOn = tOn;
-  this->tOff = tOff;
-  this->blinkOn = !powerOn;
+  this->tOn   = tOn;
+  this->tOff  = tOff;
+  blinking    = true;
+  blinkOn     = !powerOn;
+  blinkTs     = millis ();
   digitalWrite (ledPin, blinkOn);
-  blinkTs = millis ();
 }
 
 void LedClass::blinkStop (void) {
   if (!initialized) return;
   blinking = false;
   digitalWrite (ledPin, powerOn);
-  this->tOn = 0;
-  this->tOff = 0;
-  this->count = 0;
+  tOn   = 0;
+  tOff  = 0;
+  count = 0;
 }
 
 void LedClass::blinkBlocking (int32_t count, uint32_t tOn, uint32_t tOff) {

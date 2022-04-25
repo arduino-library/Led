@@ -44,15 +44,15 @@ class LedClass {
     void blinkStop (void);
 
     bool blinking = false;
-    bool powerOn = false;
+    bool powerOn  = false;
 
   private:
-    bool initialized = false;
-    uint8_t ledPin;
+    bool     initialized = false;
+    uint8_t  ledPin;
     uint32_t blinkTs = 0;
-    int32_t count;
-    uint32_t tOn = 0;
-    uint32_t tOff = 0;
+    int32_t  count;
+    uint32_t tOn     = 0;
+    uint32_t tOff    = 0;
     bool blinkOn;
 };
 
