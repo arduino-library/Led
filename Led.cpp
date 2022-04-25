@@ -49,9 +49,7 @@ void LedClass::loopHandler (void) {
     digitalWrite (ledPin, blinkOn);
     blinkTs = ts;
     if (count > 0 ) count--;
-    else if (count == 0) {
-      blinkStop ();
-    }
+    if (count == 0) blinkStop ();
   }
 }
 
