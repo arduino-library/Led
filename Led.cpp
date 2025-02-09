@@ -44,7 +44,7 @@ void LedClass::loopHandler (void) {
 
   ts = millis ();
 
-  if ( (blinkOn && ts - blinkTs > tOn) || (!blinkOn && ts - blinkTs > tOff) ) {
+  if ( (blinkOn && (ts - blinkTs > tOn)) || (!blinkOn && (ts - blinkTs > tOff)) ) {
     blinkOn = !blinkOn;
     digitalWrite (ledPin, blinkOn);
     blinkTs = ts;
@@ -76,7 +76,7 @@ void LedClass::toggle (void) {
 
 void LedClass::blink (int32_t count, uint32_t tOn, uint32_t tOff) {
   if (!initialized || count == 0) return;
-  if ((tOn == this->tOn && tOff == this->tOff) || this->count > 0)  return;
+  if (((tOn == this->tOn) && (tOff == this->tOff)) || this->count > 0)  return;
   this->count = 2 * count;
   this->tOn   = tOn;
   this->tOff  = tOff;
